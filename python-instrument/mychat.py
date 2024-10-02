@@ -1,5 +1,4 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, TextStreamer
-from threading import Thread
 
 model_name = "EleutherAI/gpt-neo-2.7B"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
