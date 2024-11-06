@@ -72,3 +72,15 @@ Cpus_allowed_list:      0-7
 helm uninstall chatqna
 helm uninstall -n kube-system balloons
 ```
+
+## References
+
+- OPEA ChatQnA example [link](https://github.com/opea-project/GenAIExamples/tree/main/ChatQnA)
+
+- Balloons policy options [link](https://containers.github.io/nri-plugins/stable/docs/resource-policy/policy/balloons.html)
+
+- This example is part of the KubeCon NA 2024 talk:
+  Platform Performance Optimization for AI
+  by Dixita Narang and Antti Kervinen.
+  [talk](https://sched.co/1i7m0)
+  [slides](https://docs.google.com/presentation/d/1lqjjpbUAsCf3muFf9YWN5HGwwHB3XxBJmX2-C7JP41k/)
