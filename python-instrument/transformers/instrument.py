@@ -1,9 +1,9 @@
 # instrument - transparently instrument selected functions and run a program
 #
 # instead of running
-#     python3 prog.py ARGS
+#     python3 main.py ARGS
 # run:
-#     python3 instrument.py prog.py ARGS
+#     python3 instrument.py main.py ARGS
 
 import time
 import transformers
