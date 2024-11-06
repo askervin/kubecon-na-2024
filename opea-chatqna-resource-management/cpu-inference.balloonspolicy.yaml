@@ -1,0 +1,47 @@
+apiVersion: config.nri/v1alpha1
+kind: BalloonsPolicy
+metadata:
+  name: default
+spec:
+  allocatorTopologyBalancing: true
+  balloonTypes:
+  - name: large-inference
+    minCPUs: 16
+    minBalloons: 2
+    preferNewBalloons: true
+    hideHyperthreads: true
+    matchExpressions:
+    - key: name
+      operator: In
+      values:
+      - tgi
+  - name: small-inference
+    minCPUs: 8
+    preferNewBalloons: true
+    hideHyperthreads: true
+    matchExpressions:
+    - key: name
+      operator: In
+      values:
+      - tei
+      - teirerank
+  - name: default
+    minBalloons: 2
+    hideHyperthreads: false
+    namespaces:
+    - "*"
+    shareIdleCPUsInSame: package
+  instrumentation:
+    httpEndpoint: :8891
+    prometheusExport: true
+    reportPeriod: 60s
+    samplingRatePerMillion: 0
+  log:
+    source: true
+    debug: ["policy"]
+  pinCPU: true
+  pinMemory: false
+  reservedPoolNamespaces:
+  - kube-system
+  reservedResources:
+    cpu: "2"
